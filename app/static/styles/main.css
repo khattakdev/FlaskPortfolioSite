@@ -1,5 +1,5 @@
 p, h1, h2, h3, h4, h5, h6, button {
-    font-family: "Roboto", serif;
+    font-family: "Inter", serif;
 }
 
 body {
@@ -7,19 +7,43 @@ body {
     background-size: cover;
     width: auto; 
     overflow-x: hidden;
-    font-family: "Roboto", serif;
+    font-family: "Inter", serif;
     margin: 0px;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex.down {
+    flex-direction: column;
 }
 
 .nav-bar {
     width: 100%;
-    display: inline-block;
     background-color: #1C539F;
-    font-family: "Roboto", serif;
+    font-family: "Inter", serif;
     font-weight: 700 !important;
-    padding-top: 10px;
 }
 
+.nav-content {
+    text-align: center;
+    color: white;
+}
+
+.nav-content img {
+    border: 3px solid transparent;
+    border-radius: 50%;
+}
 .nav-content .logo-touch-target {
     display: inline-flex;
     height: 60%;
@@ -37,16 +61,26 @@ body {
     justify-content: center;
 }
 
-.nav-logo img {
-    width: 200px;
+.nav-content a {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin: 0 24px;
+    transition: .25 color ease-in;
 }
 
-.nav-content nav {
-    display: block;
-    width: 100%;
-    text-align: right;
+.nav-content a:hover {
+    color: #f8b61b;
+}
+
+.nav-logo img {
+    width: 200px;
+
+}
+
+.nav-content nav, .nav-content {
     padding-top: 0px;
     padding-right: 0px;
+    align-items: center;
 }
 
 .profile {
