@@ -1,4 +1,4 @@
-# Flask-Blog
+# Flask-Site
 
 Minimal Flask template to get started on your blog application for MLH Fellowship Production Engineering track.
  
