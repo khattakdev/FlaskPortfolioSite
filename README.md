@@ -11,7 +11,7 @@ Make sure you have python3 and pip installed
 Create and activate virtual environment using virtualenv
 ```bash
 $ python -m venv python3-virtualenv
-$ .\python3-virtualenv\bin\activate
+$ .\python3-virtualenv\Scripts\activate
 ```
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all dependencies
