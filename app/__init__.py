@@ -6,6 +6,7 @@ from werkzeug.sansio.response import Response
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.db import get_db
+import subprocess
 
 load_dotenv()
 app = Flask(__name__)
@@ -70,3 +71,7 @@ def login():
     
     ## TODO: Return a login page
     return "Login Page not yet implemented", 501
+@app.route('/pull', methods=(['POST']))
+def pull():
+    subprocess.call('git pull')
+    return "", 200
