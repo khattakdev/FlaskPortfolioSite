@@ -73,5 +73,5 @@ def login():
     return "Login Page not yet implemented", 501
 @app.route('/pull', methods=(['POST']))
 def pull():
-    subprocess.call("cd /home/centos/FlaskPortfolioSite/ && sudo /usr/bin/git pull && sudo systemctl restart myportfolio", shell=True)
+    subprocess.call("/usr/bi/sudo -s && cd /home/centos/FlaskPortfolioSite/ && /usr/bin/git pull && systemctl restart myportfolio", shell=True)
     return "", 200
