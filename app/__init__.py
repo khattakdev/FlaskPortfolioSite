@@ -19,4 +19,4 @@ def index():
 
 @app.route('/health')
 def health():
-    return "",200
+    return "Works",200
