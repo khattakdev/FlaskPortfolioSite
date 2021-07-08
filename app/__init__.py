@@ -3,9 +3,9 @@ from flask import Flask, render_template, send_from_directory, Response, request
 from dotenv import load_dotenv
 from flask.typing import StatusCode
 from werkzeug.sansio.response import Response
-from . import db
+#from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.db import get_db
+#from app.db import get_db
 import subprocess
 
 load_dotenv()
@@ -23,7 +23,18 @@ def health():
 
 @app.route('/login', methods=('GET', 'POST'))
 def login():
-    if request.method == 'POST':
+    if request.method == 'GET':
+        if request.args.get('reserve_text'):
+            reserveText = request.args['reserve_text']
+        else:
+            reserveText = ""
+        if request.args.get('error'):
+            error = request.args['error']
+        else:
+            error = ""
+        return render_template('login.html', title="Login", error=error, reserveText = reserveText, url=os.getenv("URL"))
+
+    elif request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         db = get_db()
@@ -47,7 +58,14 @@ def login():
 
 @app.route('/register', methods=('GET', 'POST'))
 def register():
-    if request.method == 'POST':
+    if request.method == 'GET':
+        if request.args.get('error'):
+            error = request.args['error']
+        else:
+            error = ""
+        return render_template('register.html', title="Register", error=error, url=os.getenv("URL"))
+
+    elif request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         db = get_db()
