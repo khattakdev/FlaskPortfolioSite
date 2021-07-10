@@ -53,7 +53,7 @@ def register():
             error = request.args['error']
         else:
             error = ""
-        #return render_template('register.html', title="Register", error=error, url=os.getenv("URL"))
+        return render_template('register.html', title="Register", error=error, url=os.getenv("URL"))
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -75,7 +75,7 @@ def register():
         else:
             return error, 418
 
-    return render_template('register.html', title="Register", error=error, url=os.getenv("URL"))
+    return render_template('register.html', title="Register")
 
 @app.route('/login', methods=('GET', 'POST'))
 def login():
