@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+
   workflow_dispatch:
 
 jobs:
@@ -16,7 +17,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy-key.pem
           chmod 600 ~/.ssh/deploy-key.pem
-          cat >>~/.ssh/config << END
+          cat >>~/.ssh/config <<END
           Host my-vm
             HostName $SSH_IP
             User $SSH_USER
@@ -30,3 +31,4 @@ jobs:
 
       - name: Deploy site
         run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && git fetch && git reset --hard origin/master && docker-compose up -d --build && docker-compose ps'
+
