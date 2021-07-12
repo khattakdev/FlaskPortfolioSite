@@ -32,12 +32,3 @@ jobs:
       - name: Deploy site
         run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && git fetch && git reset --hard origin/master && docker-compose up -d --build && docker-compose ps'
 
-      - name: Discord Failure Notification
-        if: ${{ failure() }}
-        run: ssh my-vm 'curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed"'
-
-      - name: Discord Notification
-        run: ssh my-vm 'curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"'
-      
-      - name: Deployment Test
-        run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && bash prod-test.sh'
